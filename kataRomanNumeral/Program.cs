@@ -12,7 +12,7 @@ namespace kataRomanNumeral
 
         static void Main(string[] args)
         {
-            romanConvert convertNumber = new romanConvert();
+            RomanConvert convertNumber = new RomanConvert();
 
             Console.WriteLine("Welcome to Roman Numeral.");
             Console.WriteLine("Enter a number between 1 and 100 to find the numeral value.");
@@ -21,9 +21,18 @@ namespace kataRomanNumeral
 
             int givenNumber = Convert.ToInt32(givenInput);
 
-            string outputNumeral = convertNumber.convertToNumeral(givenNumber);
+            try
+            {
+                string outputNumeral = convertNumber.ConvertToNumeral(givenNumber);
+                Console.WriteLine("The Roman equavilanet is " + outputNumeral);
+            }
 
-            Console.WriteLine("The Roman equavilanet is " + outputNumeral);
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+
             Console.ReadKey();
         }
     }

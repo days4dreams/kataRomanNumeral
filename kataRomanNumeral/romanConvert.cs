@@ -6,19 +6,28 @@ using System.Threading.Tasks;
 
 namespace kataRomanNumeral
 {
-    class romanConvert
+    class RomanConvert
     {
         public string numeralResult = "";
 
-        public string convertToNumeral (int number)
+        public string ConvertToNumeral (int number)
         {
             if (number < 1 || number > 100)
             {
-                numeralResult = "Please enter a value between 1 and 100";
+                throw new ArgumentOutOfRangeException("number", "Number must be between 1 and 100.");
             }
 
-            else
+
+            Dictionary<int, string> NumeralDictionary = new Dictionary<int, string>();
+
+            NumeralDictionary.Add(100, "C");
+            NumeralDictionary.Add(90, "XC");
+
+            foreach (int key in NumeralDictionary.Keys)
             {
+                string test = NumeralDictionary[key];
+                
+            }
 
                 while (number >= 100)
                 {
@@ -89,7 +98,6 @@ namespace kataRomanNumeral
                     number = number - 1;
                     //when the value number exists this loop, it will be less 2
                 }
-            }
             return numeralResult;
 
         }
