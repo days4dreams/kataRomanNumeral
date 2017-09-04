@@ -12,24 +12,39 @@ namespace kataRomanNumeral
 
         public string ConvertToNumeral (int number)
         {
-            if (number < 1 || number > 100)
+            if (number < 0 || number > 100)
             {
                 throw new ArgumentOutOfRangeException("number", "Number must be between 1 and 100.");
             }
-
 
             Dictionary<int, string> NumeralDictionary = new Dictionary<int, string>();
 
             NumeralDictionary.Add(100, "C");
             NumeralDictionary.Add(90, "XC");
+            NumeralDictionary.Add(60, "LX");
+            NumeralDictionary.Add(50, "L");
+            NumeralDictionary.Add(40, "XL");
+            NumeralDictionary.Add(30, "XXX");
+            NumeralDictionary.Add(20, "XX");
+            NumeralDictionary.Add(10, "X");
+            NumeralDictionary.Add(9, "IX");
+            NumeralDictionary.Add(5, "V");
+            NumeralDictionary.Add(4, "IV");
+            NumeralDictionary.Add(3, "III");
+            NumeralDictionary.Add(2, "II");
+            NumeralDictionary.Add(1, "I");
 
             foreach (int key in NumeralDictionary.Keys)
             {
-                string test = NumeralDictionary[key];
-                
+                if (number >= key) {
+
+                    string output = NumeralDictionary[key];
+                    numeralResult = numeralResult + output;
+                    number = number - key;
+                }
             }
 
-                while (number >= 100)
+               /* while (number >= 100)
                 {
                     numeralResult = numeralResult + "C";
                     number = number - number;
@@ -97,9 +112,8 @@ namespace kataRomanNumeral
                     numeralResult = numeralResult + "I";
                     number = number - 1;
                     //when the value number exists this loop, it will be less 2
-                }
+                } */
             return numeralResult;
-
         }
     }
 }

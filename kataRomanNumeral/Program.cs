@@ -13,12 +13,10 @@ namespace kataRomanNumeral
         static void Main(string[] args)
         {
             RomanConvert convertNumber = new RomanConvert();
-
             Console.WriteLine("Welcome to Roman Numeral.");
             Console.WriteLine("Enter a number between 1 and 100 to find the numeral value.");
 
             string givenInput = Console.ReadLine();
-
             int givenNumber = Convert.ToInt32(givenInput);
 
             try
@@ -31,7 +29,6 @@ namespace kataRomanNumeral
             {
                 Console.WriteLine(e.Message);
             }
-
 
             Console.ReadKey();
         }
